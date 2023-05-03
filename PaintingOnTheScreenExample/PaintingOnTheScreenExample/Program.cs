@@ -43,6 +43,7 @@ internal class Program
     }
 }
 
+Console.WriteLine("Hello, World!");
 
 
 //Module Module1
@@ -72,3 +73,4 @@ internal class Program
 //    End Sub
 
 //End Module
+

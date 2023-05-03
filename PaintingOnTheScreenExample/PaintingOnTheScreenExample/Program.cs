@@ -2,13 +2,13 @@
 
 namespace PaintingOnTheScreenExample;
 
-internal class Program
+internal partial class Program
 {
 
     //Private Declare Auto Function GetDesktopWindow Lib "user32.dll" () As IntPtr
 
-    [DllImport("user32.dll")]
-    private static extern nint GetDesktopWindow();
+    [LibraryImport("user32.dll")]
+    private static partial nint GetDesktopWindow();
 
 
     private static Color GetRandomColor()

@@ -2,13 +2,13 @@
 
 namespace PaintingOnTheScreenExample;
 
-internal class Program
+internal partial class Program
 {
 
     //Private Declare Auto Function GetDesktopWindow Lib "user32.dll" () As IntPtr
 
-    [DllImport("user32.dll")]
-    private static extern nint GetDesktopWindow();
+    [LibraryImport("user32.dll")]
+    private static partial nint GetDesktopWindow();
 
 
     private static Color GetRandomColor()
@@ -24,16 +24,16 @@ internal class Program
         var workingArea = Screen.PrimaryScreen.WorkingArea;
 
         using var g = System.Drawing.Graphics.FromHwnd(GetDesktopWindow());
+    
 
         int count = 0;
 
         while (count < 200)
         {
+            using var font = new System.Drawing.Font(System.Drawing.FontFamily.Families[0].Name, Random.Shared.Next(5, 50));
+            using var brush = new System.Drawing.SolidBrush(GetRandomColor());
 
-            g.DrawString("你麻痹",
-                new System.Drawing.Font(System.Drawing.FontFamily.Families[0].Name, Random.Shared.Next(5, 50)),
-                new System.Drawing.SolidBrush(GetRandomColor()),
-                new System.Drawing.Point(Random.Shared.Next(0, workingArea.Width), Random.Shared.Next(0, workingArea.Height)));
+            g.DrawString("你好", font, brush, new System.Drawing.Point(Random.Shared.Next(0, workingArea.Width), Random.Shared.Next(0, workingArea.Height)));
 
             count++;
         }

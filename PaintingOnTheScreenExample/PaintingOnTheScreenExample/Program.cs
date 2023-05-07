@@ -20,6 +20,11 @@ internal partial class Program
     static void Main(string[] args)
     {
 
+        //foreach (var f in System.Drawing.FontFamily.Families)
+        //{
+        //    Console.WriteLine(  f);
+        //}
+
         var workingArea = Screen.PrimaryScreen.WorkingArea;
 
         using var g = System.Drawing.Graphics.FromHwnd(GetDesktopWindow());
@@ -29,7 +34,7 @@ internal partial class Program
 
         while (count < 200)
         {
-            using var font = new System.Drawing.Font(System.Drawing.FontFamily.Families[0].Name, Random.Shared.Next(5, 50));
+            using var font = new System.Drawing.Font(System.Drawing.FontFamily.Families[Random.Shared.Next(0, FontFamily.Families.Length)].Name, Random.Shared.Next(5, 50));
             using var brush = new System.Drawing.SolidBrush(GetRandomColor());
             var point = new System.Drawing.Point(Random.Shared.Next(0, workingArea.Width), Random.Shared.Next(0, workingArea.Height));
 

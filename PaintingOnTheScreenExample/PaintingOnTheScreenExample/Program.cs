@@ -10,20 +10,20 @@ internal partial class Program
     private static partial nint GetDesktopWindow();
 
 
+
+    [DllImport("user32.dll")]
+    private static extern nint GetDesktopWindow2();
+
+
     private static Color GetRandomColor()
     {
         return System.Drawing.Color.FromArgb(Random.Shared.Next(0, 255), Random.Shared.Next(0, 255), Random.Shared.Next(0, 255), Random.Shared.Next(0, 255));
     }
 
-
-
     static void Main(string[] args)
     {
 
-        //foreach (var f in System.Drawing.FontFamily.Families)
-        //{
-        //    Console.WriteLine(  f);
-        //}
+
 
         var workingArea = Screen.PrimaryScreen.WorkingArea;
 

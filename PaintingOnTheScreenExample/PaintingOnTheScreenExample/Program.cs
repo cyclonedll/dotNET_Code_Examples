@@ -5,7 +5,6 @@ namespace PaintingOnTheScreenExample;
 internal partial class Program
 {
 
-    //Private Declare Auto Function GetDesktopWindow Lib "user32.dll" () As IntPtr
 
     [LibraryImport("user32.dll")]
     private static partial nint GetDesktopWindow();

@@ -24,7 +24,7 @@ internal partial class Program
         var workingArea = Screen.PrimaryScreen.WorkingArea;
 
         using var g = System.Drawing.Graphics.FromHwnd(GetDesktopWindow());
-    
+
 
         int count = 0;
 
@@ -32,8 +32,9 @@ internal partial class Program
         {
             using var font = new System.Drawing.Font(System.Drawing.FontFamily.Families[0].Name, Random.Shared.Next(5, 50));
             using var brush = new System.Drawing.SolidBrush(GetRandomColor());
+            var point = new System.Drawing.Point(Random.Shared.Next(0, workingArea.Width), Random.Shared.Next(0, workingArea.Height));
 
-            g.DrawString("你好", font, brush, new System.Drawing.Point(Random.Shared.Next(0, workingArea.Width), Random.Shared.Next(0, workingArea.Height)));
+            g.DrawString("你好", font, brush, point);
 
             count++;
         }
